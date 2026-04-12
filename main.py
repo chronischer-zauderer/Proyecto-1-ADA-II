@@ -1,4 +1,5 @@
 from dp import knapsack_dp
+from greedy import knapsack_greedy
 
 
 def imprimir_resultado(nombre, valor, seleccion, costos, retornos):
@@ -20,8 +21,12 @@ def ejecutar_caso(costos, retornos, B, titulo):
 	print(f"Presupuesto B: {B}\n")
 
 	valor_dp, seleccion_dp, _ = knapsack_dp(costos, retornos, B)
+	valor_voraz, seleccion_voraz = knapsack_greedy(costos, retornos, B)
 
 	imprimir_resultado("Programacion Dinamica", valor_dp, seleccion_dp, costos, retornos)
+	print()
+	imprimir_resultado("Enfoque Voraz (ratio retorno/costo)", valor_voraz, seleccion_voraz, costos, retornos)
+	print(f"\nDiferencia DP - Voraz: {valor_dp - valor_voraz}")
 	print()
 
 
@@ -40,4 +45,12 @@ if __name__ == "__main__":
 		retornos=[60, 100, 120],
 		B=50,
 		titulo="Caso 2: Presupuesto medio",
+	)
+
+	# Caso clasico donde voraz falla frente a DP (0/1 knapsack).
+	ejecutar_caso(
+		costos=[20, 10, 30],
+		retornos=[100, 60, 120],
+		B=50,
+		titulo="Caso 3: Contraejemplo de optimalidad voraz",
 	)

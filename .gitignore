@@ -3,3 +3,5 @@ __pycache__/
 *.pyo
 *.pyd
 .venv/
+EXPLICACION_DP.md
+EXPLICACION_VORAZ.md

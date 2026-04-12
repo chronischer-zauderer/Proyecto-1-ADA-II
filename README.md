@@ -1,12 +1,19 @@
 # Proyecto-1-ADA-II
 
-Implementacion del problema de asignacion de presupuesto limitado usando Programacion Dinamica (modelo 0/1 Knapsack).
+Implementacion del problema de asignacion de presupuesto limitado con dos enfoques:
+
+- Programacion Dinamica (modelo 0/1 Knapsack)
+- Enfoque Voraz por ratio retorno/costo
 
 ## Estructura
 
 - `dp.py`: solucion por Programacion Dinamica.
-- `main.py`: ejecucion de casos de ejemplo.
-- `tests.py`: pruebas unitarias.
+- `greedy.py`: solucion voraz por ratio retorno/costo.
+- `main.py`: ejecucion de casos de ejemplo y comparacion DP vs Voraz.
+- `tests.py`: pruebas unitarias para ambos enfoques.
+- `benchmark.py`: pruebas de rendimiento por tamano de entrada (DP vs Voraz).
+- `EXPLICACION_DP.md`: explicacion teorica y ejemplo manual de la solucion DP.
+- `EXPLICACION_VORAZ.md`: explicacion del enfoque voraz, complejidad y contraejemplo.
 - `requirements.txt`: dependencias del proyecto (no hay dependencias externas).
 
 ## Requisitos
@@ -48,6 +55,28 @@ Si usas entorno virtual local en `.venv`:
 ```bash
 .venv/bin/python -m unittest tests.py
 ```
+
+## Pruebas comparativas por tamano de entrada
+
+Para analizar el comportamiento con diferentes tamanos de entrada:
+
+```bash
+python benchmark.py
+```
+
+Si usas entorno virtual local en `.venv`:
+
+```bash
+.venv/bin/python benchmark.py
+```
+
+El script reporta:
+
+- Tiempo promedio de DP y Voraz (ms).
+- Brecha porcentual promedio respecto al optimo DP.
+- Coincidencias exactas entre Voraz y DP.
+
+Con esto se cubre el analisis del punto 5: comparacion de resultados y discusion segun tamano de entrada.
 
 ## Modelo DP implementado
 
